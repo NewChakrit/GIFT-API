@@ -1,5 +1,6 @@
 const express = require('express');
 const authRoute = require('./routes/authRoute');
+const userRoute = require('./routes/userRoute');
 const uploadRoute = require('./routes/uploadRoute');
 const aboutRoute = require('./routes/aboutRoute');
 
@@ -23,6 +24,7 @@ app.use(
 );
 
 app.use('/auth', authRoute);
+app.use('/user', userRoute);
 app.use('/about', aboutRoute);
 app.use('/upload', uploadRoute);
 

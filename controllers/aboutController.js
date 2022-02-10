@@ -1,6 +1,22 @@
 const { About } = require('../dbs/models/index');
 const jwt = require('jsonwebtoken');
 
+exports.getAboutById = async (req, res, next) => {
+    try {
+        const { id } = req.params;
+
+        const about = await About.findOne({
+            where: {
+                userId: id,
+            },
+        });
+
+        res.status(201).json({ about });
+    } catch (err) {
+        next(err);
+    }
+};
+
 exports.createAbout = async (req, res, next) => {
     try {
         const { id } = req.params;
