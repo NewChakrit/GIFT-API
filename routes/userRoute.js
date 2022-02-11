@@ -9,5 +9,6 @@ router.get('/all/:id', userController.getAllUser);
 router.get('/me/:id', auth, userController.getMe);
 router.get('/:username', auth, userController.getUserByUsername);
 router.put('/:id', auth, userController.updateProfileImg);
+router.patch('/:id', auth, userController.updateCoverImg);
 
 module.exports = router;

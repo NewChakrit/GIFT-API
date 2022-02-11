@@ -88,3 +88,31 @@ exports.updateProfileImg = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.updateCoverImg = async (req, res, next) => {
+    try {
+        const { coverUrl } = req.body;
+        const { id } = req.params;
+
+        const [affectedRow] = await User.update(
+            {
+                coverUrl,
+            },
+            {
+                where: {
+                    id,
+                },
+            }
+        );
+        if (affectedRow === 0) {
+            res.status(400).json({ message: 'cannot update cover picture' });
+        }
+
+        const user = await User.findOne({
+            where: { id },
+        });
+        res.status(200).json({ user });
+    } catch (err) {
+        next(err);
+    }
+};
