@@ -60,3 +60,31 @@ exports.getUserByUsername = async (req, res, next) => {
         next(err);
     }
 };
+
+exports.updateProfileImg = async (req, res, next) => {
+    try {
+        const { profileUrl } = req.body;
+        const { id } = req.params;
+
+        const [affectedRow] = await User.update(
+            {
+                profileUrl,
+            },
+            {
+                where: {
+                    id,
+                },
+            }
+        );
+        if (affectedRow === 0) {
+            res.status(400).json({ message: 'cannot update profile picture' });
+        }
+
+        const user = await User.findOne({
+            where: { id },
+        });
+        res.status(200).json({ user });
+    } catch (err) {
+        next(err);
+    }
+};

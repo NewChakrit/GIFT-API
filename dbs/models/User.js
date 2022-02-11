@@ -39,9 +39,6 @@ module.exports = (sequelize, Datatypes) => {
             profileUrl: {
                 type: Datatypes.STRING,
                 allowNull: false,
-                validate: {
-                    notEmpty: true,
-                },
             },
         },
         {
