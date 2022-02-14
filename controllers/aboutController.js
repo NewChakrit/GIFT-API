@@ -36,15 +36,15 @@ exports.createAbout = async (req, res, next) => {
 
 exports.updateAbout = async (req, res, next) => {
     try {
-        const { caption, age, gender, birthDate } = req.body;
+        const { caption, age, interest, birthDate } = req.body;
         const { id } = req.params;
 
         const [affectedRow] = await About.update(
             {
                 caption,
                 age,
-                gender,
                 birthDate,
+                interest,
             },
             {
                 where: {
