@@ -3,6 +3,7 @@ const authRoute = require('./routes/authRoute');
 const userRoute = require('./routes/userRoute');
 const uploadRoute = require('./routes/uploadRoute');
 const aboutRoute = require('./routes/aboutRoute');
+const postRoute = require('./routes/postRoute');
 
 // // // Create Table
 // const { sequelize } = require('./dbs/models/index');
@@ -27,6 +28,7 @@ app.use('/auth', authRoute);
 app.use('/user', userRoute);
 app.use('/about', aboutRoute);
 app.use('/upload', uploadRoute);
+app.use('/post', postRoute);
 
 // Error handling
 app.use((req, res, next) => {
