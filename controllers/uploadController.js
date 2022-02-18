@@ -22,20 +22,6 @@ const uploadImage = async (req, res, next) => {
     }
 };
 
-const uploadImagePost = async (req, res, next) => {
-    try {
-        const fileStr = req.body.data;
-        const uploadResponse = await cloudinary.uploader.upload(fileStr, {
-            folder: 'Beetalk',
-            use_filename: true,
-        });
-        res.status(201).json({ url: uploadResponse.url });
-    } catch (err) {
-        next(err);
-    }
-};
-
 module.exports = {
     uploadImage,
-    uploadImagePost,
 };
