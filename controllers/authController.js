@@ -29,6 +29,9 @@ exports.register = async (req, res, next) => {
         if (password === '' || password === null || password === undefined)
             return res.status(400).json({ message: 'Please input password' });
 
+        if (password.length < 6) {
+            return res.status(400).json({ message: 'Password is too short' });
+        }
         if (password !== confirmPassword)
             return res.status(400).json({ message: 'Password is not match' });
 
