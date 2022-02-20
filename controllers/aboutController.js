@@ -20,11 +20,12 @@ exports.getAboutById = async (req, res, next) => {
 exports.createAbout = async (req, res, next) => {
     try {
         const { id } = req.params;
-        const { gender, interest } = req.body;
+        const { gender, interest, age } = req.body;
 
         const about = await About.create({
             gender,
             interest,
+            age,
             userId: id,
         });
 
