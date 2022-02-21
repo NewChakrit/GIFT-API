@@ -96,7 +96,7 @@ exports.login = async (req, res, next) => {
             expiresIn: 60 * 60 * 24 * 30,
         });
 
-        // res.header('Access-Control-Allow-Origin', '*');
+        res.header('Access-Control-Allow-Origin', '*');
         res.json({ message: 'Login success', token });
     } catch (err) {
         next(err);
