@@ -7,9 +7,9 @@ const postRoute = require('./routes/postRoute');
 const chatRoute = require('./routes/chatRoute');
 const { getById } = require('./dbs/function/userDao');
 
-// // // Create Table
-// const { sequelize } = require('./dbs/models/index');
-// sequelize.sync({ force: true });
+// // Create Table
+const { sequelize } = require('./dbs/models/index');
+sequelize.sync({ force: false });
 
 require('dotenv').config();
 require('./middlewares/passport');
