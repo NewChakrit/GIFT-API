@@ -33,6 +33,11 @@ app.use('/upload', uploadRoute);
 app.use('/post', postRoute);
 app.use('/chat', chatRoute);
 
+app.use('/', (req, res, next) => {
+    console.log(5555);
+    res.status(200).json({ message: 'Hello' });
+});
+
 // Error handling
 app.use((req, res, next) => {
     res.status(404).json({ message: 'resource not found on this server' });
