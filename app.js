@@ -151,4 +151,6 @@ io.on('connection', (socket) => {
     });
 });
 
-server.listen(5555, () => console.log('server run on port 5555'));
+server.listen(process.env.PORT || 8000, () =>
+    console.log('server run on port 5555')
+);
