@@ -67,7 +67,7 @@ const server = http.createServer(app);
 // ให้ทุกคนที่เข้ามา server นี้สามารถใช้งานได้ โดยมี method เป็น get & post
 const io = require('socket.io')(server, {
     cors: {
-        origin: 'https://blissful-tereshkova-6e67da.netlify.app',
+        origin: 'https://soodpunggift.netlify.app',
         // origin: 'http://localhost:3000',
         methods: ['GET', 'POST'],
     },
