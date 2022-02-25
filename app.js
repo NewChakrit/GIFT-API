@@ -74,7 +74,6 @@ const io = require('socket.io')(server, {
     cors: {
         // origin: 'https://soodpunggift.netlify.app',
         origin: '*',
-        // origin: 'http://localhost:3000',
         methods: ['GET', 'POST'],
     },
 });
